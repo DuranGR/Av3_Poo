@@ -4,17 +4,18 @@ import entidades.Produto;
 import entidades.Acessorios;
 import entidades.Console;
 import entidades.Jogos;
+import entidades.Loja;
 
 public class ServicoImposto {
-	private imposto servicoImposto;
+	private Imposto servicoImposto;
 
-	public ServicoImposto(imposto servicoImposto) {
+	public ServicoImposto(Imposto servicoImposto) {
 		this.servicoImposto = servicoImposto;
 	}
 
-	public double processarImposto(Produto produto) {
-		double valor=0;
-		valor = servicoImposto.calculaImposto(produto.getPreco()); 
-		return valor;
+	public void processarImposto(Loja loja) {
+		double imposto;
+		imposto = servicoImposto.calculaImposto(); 
+		loja.setImposto(imposto); // Muda o valor da variável imposto na loja
 	}
 }
